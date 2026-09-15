@@ -53,7 +53,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 #nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.3rem 0;transition:background .4s var(--ease),padding .3s var(--ease),box-shadow .3s var(--ease)}
 #nav.s{background:rgba(253,248,243,.96);backdrop-filter:blur(16px);padding:.8rem 0;box-shadow:0 1px 28px rgba(60,30,10,.07)}
 .ni{display:flex;align-items:center;gap:1.5rem}
-.nl{display:flex;align-items:baseline;gap:.45rem;margin-right:auto}
+.nl{display:flex;align-items:center;gap:.6rem;margin-right:auto}
+.nl-logo{width:38px;height:38px;object-fit:contain;background:#fff;border-radius:50%;padding:3px;flex-shrink:0}
 .na{font-family:var(--serif);font-size:2rem;font-weight:600;color:#fff;letter-spacing:.18em;line-height:1;transition:color var(--t)}
 #nav.s .na{color:var(--charcoal)}
 .ns{font-size:.82rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);align-self:center}
@@ -1359,6 +1360,7 @@ body{background:radial-gradient(ellipse at 15% 0%,rgba(197,168,124,.07) 0%,trans
 <nav id="nav">
   <div class="w ni">
     <a href="#" class="nl">
+      <img src="logo-belen-castilla.jpg" alt="" class="nl-logo">
       <span class="na" id="nanut">BELÉN CASTILLA</span>
       <span class="ns">Estética Avanzada</span>
     </a>
@@ -2429,6 +2431,13 @@ if('IntersectionObserver' in window){
       bottom: 90px;   /* Por encima de .mob-bar (≈70px alto + padding) */
       left: 16px;
       width: 58px; height: 58px;
+    }
+    .cb-teaser {
+      /* El aviso seguía anclado a la posición de escritorio del icono
+         (más abajo) y en móvil eso cae encima de la barra de llamar/WhatsApp. */
+      bottom: calc(90px + env(safe-area-inset-bottom, 0px) + 4px);
+      left: calc(16px + env(safe-area-inset-left, 0px) + 72px);
+      max-width: min(200px, calc(100vw - 16px - 72px - 16px));
     }
     .cb-window {
       bottom: calc(90px + env(safe-area-inset-bottom, 0px));
